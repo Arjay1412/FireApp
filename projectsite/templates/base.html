@@ -141,13 +141,18 @@
                 <div class="collapse" id="base">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="components/avatars.html">
-                        <span class="sub-item">Avatars</span>
+                      <a href="{% url 'fireStation-list' %}">
+                        <span class="sub-item">Fire Stations</span>
                       </a>
                     </li>
                     <li>
-                      <a href="components/buttons.html">
-                        <span class="sub-item">Buttons</span>
+                      <a href="{% url 'fireFighter-list' %}">
+                        <span class="sub-item">Fire Fighters</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'fireTruck-list' %}">
+                        <span class="sub-item">Fire Trucks</span>
                       </a>
                     </li>
                     
@@ -171,7 +176,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="maps/jqvmap.html">
+                      <a href="{% url 'map-incident' %}">
                         <span class="sub-item">Fire Incidents</span>
                       </a>
                     </li>

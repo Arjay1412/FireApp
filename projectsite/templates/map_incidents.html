@@ -58,7 +58,7 @@
             // Create an array to hold all the markers
             var markers = [];
             // Define the marker data
-            var markerData = {{ fireStations|safe }} ;
+            var markerData = {{ incident|safe }} ;
             // Loop through the marker data and create markers
             markerData.forEach(function (data) {
                 var latitude = parseFloat(data.latitude);
