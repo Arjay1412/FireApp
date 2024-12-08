@@ -13,17 +13,18 @@
             {% for message in messages %}
                 // Create a new toast element
                 const toastHTML = `
-                <div class="toast" role="alert" aria-live="polite" style="margin-bottom: 10px; border-radius: 10px; background: rgba(240, 255, 254, 0.8); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);" data-bs-delay="3000"> 
+                <div class="toast" role="alert" aria-live="polite" style="background: #fff; border-top-right-radius: 12px; border-bottom-left-radius: 12px; box-shadow: -20px 20px 35px 1px rgba(165, 165, 165, 0.8); display: flex; flex-direction: column; padding: 32px; margin: 40px; max-width: 200px; width: 100%;" data-bs-delay="3000"> 
                     <div class="toast-header">
-                        <img src="{% static 'img/profile1.jpg' %}" class="rounded mr-2" style="width: 25px; height: 25px;"alt="logo">
-                        <strong class="me-auto">Notification</strong>
-                        <small>Just now</small>
                         <button type="button" class="ml-2 mb-1 close" data-bs-dismiss="toast" aria-label="Close" onclick="this.closest('.toast').remove();">
                             <span aria-hidden="true">&times;</span>
                         </button>
+                        <img src="{% static 'img/fire-hydrant.png' %}" class="rounded mr-2" style="width: 25px; height: 25px;"alt="logo">
+                        <strong class="me-auto">Notification</strong>
+                        <small>Just now</small>
+                        
                     </div>
                     <div class="toast-body">
-                        {{ message|escapejs }}
+                        <b>{{ message|escapejs }}</b>
                     </div>
                 </div>`;
             

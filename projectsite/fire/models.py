@@ -1,3 +1,5 @@
+from django.utils.timezone import now
+from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -31,6 +33,10 @@ class Incident(BaseModel):
     date_time = models.DateTimeField(blank=True, null=True)
     severity_level = models.CharField(max_length=45, choices=SEVERITY_CHOICES)
     description = models.CharField(max_length=250)
+
+    def clean(self):
+        if self.date_time and self.date_time > now() :
+            raise ValidationError("Incident date and time cannot be in the future!")
 
     def __str__(self) :
         return f"{self.location}"
@@ -79,6 +85,10 @@ class WeatherConditions(BaseModel):
     humidity = models.DecimalField(max_digits=10, decimal_places=2)
     wind_speed = models.DecimalField(max_digits=10, decimal_places=2)
     weather_description = models.CharField(max_length=150)
-
+    
+    def clean(self):
+        if self.temperature < 0.0 or self.humidity < 0.0 or self.wind_speed < 0.0:
+            raise ValidationError("Values must be a positive number.")
+    
     def __str__(self) :
         return self.incident.location.name
